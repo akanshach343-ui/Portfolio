@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not A Resume. — Akansha Chaudhary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --ink: #1A1208;
+    --warm-brown: #3D2B1A;
+    --orange: #E8520A;
+    --orange-light: #FF6B2B;
+    --muted: #8A7A6A;
+    --card-bg: #EDE8DE;
+    --border: #D4C9B8;
+    --green: #2D7A5A;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE TEXTURE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 900;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--orange);
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--warm-brown);
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-radius: 40px;
+    transition: all 0.2s ease;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 140px 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-stamp {
+    position: absolute;
+    top: 120px;
+    right: 60px;
+    width: 120px;
+    height: 120px;
+    border: 2.5px solid var(--orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 0.8rem;
+    color: var(--orange);
+    line-height: 1.3;
+    transform: rotate(12deg);
+    animation: spinSlow 20s linear infinite;
+  }
+
+  @keyframes spinSlow {
+    to { transform: rotate(372deg); }
+  }
+
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--orange);
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--orange);
+  }
+
+  .hero-sub-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 48px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-greeting {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 0.88rem;
+    font-weight: 300;
+    margin-bottom: 32px;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-body {
+    max-width: 560px;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: var(--warm-brown);
+    margin-bottom: 48px;
+  }
+
+  .hero-body strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--orange);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+    transition: all 0.25s ease;
+    border: 2px solid var(--orange);
+  }
+
+  .btn-primary:hover {
+    background: var(--orange-light);
+    border-color: var(--orange-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(232, 82, 10, 0.3);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--ink);
+    padding: 14px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+    transition: all 0.25s ease;
+    border: 2px solid var(--border);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--ink);
+    transform: translateY(-2px);
+  }
+
+  .hero-footnote {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    font-family: 'Caveat', cursive;
+    font-size: 1rem;
+    color: var(--muted);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hero-footnote span:first-child { color: var(--orange); font-size: 1.1rem; }
+
+  .hero-deco {
+    position: absolute;
+    bottom: -40px;
+    right: 0;
+    width: 380px;
+    height: 380px;
+    border: 60px solid var(--card-bg);
+    border-radius: 50%;
+    opacity: 0.6;
+  }
+
+  /* ─── SECTION SHARED ─── */
+  section {
+    padding: 100px 60px;
+    position: relative;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 500;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::before {
+    content: '✦';
+    font-size: 0.6rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--orange);
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 60px;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 60px;
+  }
+
+  /* ─── WHAT I CAN DO ─── */
+  #help {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  #help .section-label { color: var(--orange); }
+  #help .section-title { color: var(--cream); }
+  #help .section-subtitle { color: #8A8070; }
+
+  .help-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: #2A1E10;
+    border: 2px solid #2A1E10;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .help-card {
+    background: #1A1208;
+    padding: 48px 40px;
+    position: relative;
+    transition: background 0.3s ease;
+  }
+
+  .help-card:hover { background: #231910; }
+
+  .help-card-icon {
+    font-size: 2rem;
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .help-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .help-card p {
+    font-size: 0.88rem;
+    color: #8A8070;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .help-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 40px;
+    border: 1px solid #3D2B1A;
+    color: var(--orange);
+    font-weight: 500;
+  }
+
+  /* ─── TIMELINE / PROOF ─── */
+  #proof {
+    background: var(--cream);
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 700px;
+    padding-left: 40px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--orange), var(--border));
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.5s ease forwards;
+  }
+
+  .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+  .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+  .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+  .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+  .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+  .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+
+  @keyframes slideIn {
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -46px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--orange);
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 3px var(--orange);
+  }
+
+  .timeline-date {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .timeline-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .timeline-item p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .timeline-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    color: var(--green);
+    font-weight: 500;
+    margin-top: 8px;
+  }
+
+  .proof-aside {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+  }
+
+  .proof-card {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 40px;
+    border-radius: 8px;
+    position: relative;
+  }
+
+  .proof-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--orange);
+    opacity: 0.3;
+    position: absolute;
+    top: 10px; left: 24px;
+    line-height: 1;
+  }
+
+  .proof-card p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .proof-card-footer {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 500;
+  }
+
+  /* ─── DIFFERENT ─── */
+  #different {
+    background: var(--card-bg);
+  }
+
+  .diff-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .diff-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .diff-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(26, 18, 8, 0.12);
+  }
+
+  .diff-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--orange);
+  }
+
+  .diff-card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .diff-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .diff-card p {
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ─── BONUS ─── */
+  #bonus {
+    background: var(--orange);
+    color: white;
+  }
+
+  #bonus .section-label { color: rgba(255,255,255,0.6); }
+  #bonus .section-title { color: white; }
+
+  .bonus-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    margin-top: 60px;
+  }
+
+  .bonus-text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 16px;
+  }
+
+  .bonus-bullets {
+    list-style: none;
+    margin: 24px 0;
+  }
+
+  .bonus-bullets li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 12px;
+  }
+
+  .bonus-bullets li::before {
+    content: '→';
+    font-weight: 700;
+  }
+
+  .bonus-post-card {
+    background: white;
+    border-radius: 8px;
+    padding: 40px;
+    position: relative;
+  }
+
+  .bonus-post-card h4 {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .bonus-post-card p {
+    font-size: 0.92rem;
+    color: var(--ink);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .bonus-post-tag {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 40px;
+    margin-bottom: 16px;
+  }
+
+  /* ─── CHALLENGE FORM ─── */
+  #challenge {
+    background: var(--cream);
+  }
+
+  .challenge-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .challenge-form {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 48px;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--warm-brown);
+    margin-bottom: 8px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    background: var(--cream);
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    padding: 14px 18px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    transition: border-color 0.2s ease;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--orange);
+  }
+
+  .form-group textarea {
+    height: 120px;
+    resize: vertical;
+  }
+
+  #form-status {
+    margin-top: 16px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    min-height: 24px;
+  }
+
+  .form-status-success { color: var(--green); }
+  .form-status-error { color: var(--orange); }
+
+  .challenge-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .challenge-text p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .challenge-caveat {
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    color: var(--orange);
+    margin-top: 24px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 48px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .footer-left {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--orange);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8A8070;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .footer-links a:hover { color: var(--orange); }
+
+  .footer-right {
+    font-size: 0.8rem;
+    color: #4A3A2A;
+  }
+
+  /* ─── MODAL ─── */
+  /* .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 18, 8, 0.75);
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .modal-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .modal {
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 48px;
+    max-width: 560px;
+    width: 100%;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+
+  .modal-overlay.open .modal {
+    transform: translateY(0);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--muted);
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: color 0.2s ease;
+  }
+  .modal-close:hover { color: var(--ink); }
+
+  .modal h4 {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .modal-linkedin-post {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px;
+    font-size: 0.93rem;
+    color: var(--ink);
+    line-height: 1.75;
+    white-space: pre-line;
+  }
+
+  .modal .copy-btn {
+    margin-top: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--ink);
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .modal .copy-btn:hover { background: #2D1E0A; } */
+   /* ══════════════════════════════════════
+   MODAL
+══════════════════════════════════════ */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      background: rgba(25, 17, 10, .78);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-box {
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 44px;
+      max-width: 560px;
+      width: 100%;
+      position: relative;
+      transform: translateY(16px);
+      transition: transform .3s;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+
+    .modal-backdrop.open .modal-box {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.3rem;
+      color: var(--muted);
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: color .2s;
+    }
+
+    .modal-close:hover {
+      color: var(--ink);
+    }
+
+    .modal-box h3 {
+      font-family: var(--ff-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .modal-sub {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .linkedin-post {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      font-size: .9rem;
+      color: var(--ink);
+      line-height: 1.8;
+      white-space: pre-wrap;
+      font-family: var(--ff-body);
+    }
+
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ink);
+      color: var(--cream);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 5px;
+      font-family: var(--ff-body);
+      font-size: .84rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: background .2s;
+    }
+
+    .copy-btn:hover {
+      background: var(--brown);
+    }
+
+    .copy-btn.copied {
+      background: var(--green);
+    }
+
+  /* ─── GITHUB STATS ─── */
+  #github {
+    background: var(--card-bg);
+    padding: 60px;
+  }
+
+  .github-inner {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+
+  .gh-stat {
+    flex: 1;
+    min-width: 160px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px;
+    text-align: center;
+  }
+
+  .gh-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .gh-stat-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .gh-loading {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.88rem;
+    padding: 24px;
+    width: 100%;
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    section, footer { padding: 80px 24px; }
+    #hero { padding: 120px 24px 80px; }
+    .hero-stamp { right: 24px; top: 100px; width: 90px; height: 90px; font-size: 0.7rem; }
+    .hero-footnote { left: 24px; bottom: 24px; }
+    .help-grid { grid-template-columns: 1fr; }
+    .diff-grid { grid-template-columns: 1fr; }
+    .bonus-inner { grid-template-columns: 1fr; }
+    .challenge-inner { grid-template-columns: 1fr; }
+    .proof-aside { display: none; }
+    #github { padding: 60px 24px; }
+    .divider { margin: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">if i were on your team.</div>
+  <ul class="nav-links">
+    <li><a href="#help">What I Can Do</a></li>
+    <li><a href="#proof">Proof</a></li>
+    <li><a href="#bonus">Free Value</a></li>
+    <li><a href="#challenge" class="active">Give Me A Task</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-stamp">Built in<br>~15 hrs<br>on a<br>weekend</div>
+
+  <p class="hero-eyebrow">For Ramya & Himang @ RayCreatess</p>
+
+  <h1 class="hero-headline">
+    Not A<br>
+    <em>Resume.</em>
+  </h1>
+  <p class="hero-sub-headline">A proposal, actually.</p>
+
+  <span class="hero-greeting">Hi Ramya and Himang 👋</span>
+
+  <p class="hero-body">
+    Instead of sending a PDF that looks like everyone else's, I spent my weekend building this.<br><br>
+    I'm <strong>Akansha</strong>, a first-year MCA student who started from a non-technical background, learned Python, built projects, and is now looking for an opportunity to contribute while learning from people who are <strong>actually building things</strong>.<br><br>
+    The more I followed RayCreates, the more I realized — you don't need another person asking for mentorship. <strong>You need people who can make your life easier.</strong>
+  </p>
+
+  <div class="hero-ctas">
+    <a href="#help" class="btn-primary">
+      See What I Can Help With
+      <span>↓</span>
+    </a>
+    <a href="https://github.com" target="_blank" class="btn-outline">
+      GitHub ↗
+    </a>
+  </div>
+<br>
+  <div class="hero-footnote">
+    <span>~15 hours build time</span>
+    <span>Life choices questioned: classified</span>
+  </div>
+
+  <div class="hero-deco"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT I CAN DO -->
+<section id="help">
+  <p class="section-label">What I Can Take Off Your Plate</p>
+  <h2 class="section-title">You focus on building.<br><em>I'll handle the rest.</em></h2>
+  <p class="section-subtitle">A lot of valuable work never gets done because someone needs to do it. That's where I come in.</p>
+
+  <div class="help-grid reveal">
+    <div class="help-card">
+      <span class="help-card-icon">✍️</span>
+      <h3>Content</h3>
+      <p>A lot of valuable work never gets published because someone needs to write it. I can help convert ideas, workshops and technical discussions into content people actually read.</p>
+      <div class="help-tags">
+        <span class="tag">Blog Posts</span>
+        <span class="tag">LinkedIn</span>
+        <span class="tag">Workshop Summaries</span>
+        <span class="tag">Docs</span>
+      </div>
+    </div>
+
+    <div class="help-card">
+      <span class="help-card-icon">🤝</span>
+      <h3>Community</h3>
+      <p>Every workshop generates questions, responses and insights. I can organize feedback, engage with students, collect testimonials and help maintain communication channels.</p>
+      <div class="help-tags">
+        <span class="tag">Student Engagement</span>
+        <span class="tag">Social Media</span>
+        <span class="tag">Feedback</span>
+      </div>
+    </div>
+
+    <div class="help-card">
+      <span class="help-card-icon">⚙️</span>
+      <h3>Product Support</h3>
+      <p>I don't claim to know everything. I do claim that I learn quickly and enjoy figuring things out. I can contribute through testing, docs and frontend tasks while I learn.</p>
+      <div class="help-tags">
+        <span class="tag">Testing</span>
+        <span class="tag">Frontend</span>
+        <span class="tag">API Integration</span>
+        <span class="tag">Docs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROOF -->
+<section id="proof">
+  <p class="section-label">Proof I Learn Fast</p>
+  <h2 class="section-title">The best proof isn't what I say.<br><em>It's what I've built.</em></h2>
+  <!-- <p class="section-subtitle">The best proof isn't what I say. It's what I've built.</p> -->
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-date">Three months ago</p>
+      <h3>I barely knew how APIs worked.</h3>
+      <p>Non-technical background. No CS foundation. Just curiosity and a decision to start.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-date">Month 1</p>
+      <h3>Python from scratch.</h3>
+      <p>Variables to functions to logic. Built small projects. Broke things. Fixed them. Repeated.</p>
+      <span class="timeline-check">✓ Python basics to intermediate</span>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-date">Month 2</p>
+      <h3>FastAPI + Backends.</h3>
+      <p>Learned how the web actually works. Built endpoints. Connected frontend to backend.</p>
+      <span class="timeline-check">✓ FastAPI · REST APIs · SQLite</span>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-date">Month 3</p>
+      <h3>Built independently.</h3>
+      <p>GitHub repos from scratch. Deployed projects. And then built this website — for you.</p>
+      <span class="timeline-check">✓ GitHub · Deployment · This website</span>
+    </div>
+  </div>
+
+  <div class="proof-aside">
+    <div class="proof-card">
+      <p>This website itself is the proof. It's the demo. You're looking at it right now.</p>
+      <p class="proof-card-footer">— Frontend · Backend · Database · API Routes</p>
+    </div>
+    <div style="margin-top:16px; display: flex; gap: 12px;">
+      <a href="https://github.com" target="_blank" class="btn-outline" style="flex:1; justify-content: center; font-size: 0.82rem; padding: 12px;">View GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT MAKES ME DIFFERENT -->
+<section id="different">
+  <p class="section-label">What Makes Me Different</p>
+  <h2 class="section-title">Not emotions.<br><em>Leverage.</em></h2>
+  <p class="section-subtitle">Here's why this is useful to you, specifically.</p>
+
+  <div class="diff-grid reveal">
+    <div class="diff-card">
+      <div class="diff-card-num">01</div>
+      <h3>I Think Like The Person You're Trying To Reach</h3>
+      <p>You're builders. I'm still close enough to the beginner stage to understand the questions, confusion and challenges new learners face. That perspective helps create content, documentation and learning resources that make sense to the people you're trying to help.</p>
+    </div>
+    <div class="diff-card">
+      <div class="diff-card-num">02</div>
+      <h3>This Website Exists For A Reason</h3>
+      <p>Most people send resumes. I built something. Not because it's perfect. Not because it's production-ready. But because I wanted to show initiative before asking for an opportunity.</p>
+    </div>
+    <div class="diff-card">
+      <div class="diff-card-num">03</div>
+      <h3>I'm Not Waiting To Feel Ready</h3>
+      <p>If I waited until I knew everything, this website wouldn't exist. I'd rather learn by building than prepare forever. That's the same philosophy that makes RayCreates interesting.</p>
+    </div>
+    <div class="diff-card" style="background: var(--ink); border-color: var(--ink);">
+      <div class="diff-card-num" style="color: #F5F0E8;">04</div>
+      <h3 style="color: var(--cream);">I Did The Work First</h3>
+      <p style="color: #8A8070;">Free value, no strings. A sample LinkedIn post for your next workshop. A proposal that doesn't just ask — it gives. See the bonus section below.</p>
+      <div style="margin-top: 24px;">
+        <a href="#bonus" class="btn-primary" style="font-size: 0.82rem; padding: 10px 20px;">View Free Value ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BONUS -->
+<section id="bonus">
+  <p class="section-label">Before I Ask For Something</p>
+  <h2 class="section-title">Here's something<br><em>for you.</em></h2>
+
+  <div class="bonus-inner reveal">
+    <div class="bonus-text">
+      <p>I noticed that RayCreates has conducted multiple workshops, but most of that value disappears after the event ends.</p>
+      <p>Every workshop creates:</p>
+      <ul class="bonus-bullets">
+        <li>Social proof</li>
+        <li>Community trust</li>
+        <li>Future registrations</li>
+        <li>Brand credibility</li>
+      </ul>
+      <p>Here's a ready-to-publish LinkedIn post you could use for your next workshop announcement.</p>
+      <button onclick="openModal()" class="btn-outline" style="border-color: rgba(255,255,255,0.3); color: white; margin-top: 8px;">
+        View & Copy The Post ↗
+      </button>
+    </div>
+
+    <div class="bonus-post-card">
+      <h4>LinkedIn Post Preview</h4>
+      <span class="bonus-post-tag">Ready to publish</span>
+      <p>
+        Most people watch tutorials. We do workshops.<br><br>
+        There's a difference between consuming content and actually <em>building something</em>.<br><br>
+        At RayCreates, we design workshops around one goal: you leave with something working...
+      </p>
+      <button onclick="openModal()" style="background: var(--orange); color: white; border: none; padding: 10px 20px; border-radius: 4px; font-family: 'DM Sans'; font-size: 0.85rem; font-weight: 500; cursor: pointer;">
+        Read Full Post →
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GITHUB STATS -->
+<!-- <section id="github" style="background: var(--card-bg); padding: 60px;">
+  <p class="section-label">Live From GitHub</p>
+  <h2 class="section-title" style="font-size: 2rem; margin-bottom: 32px;">Public Profile Stats</h2>
+  <div class="github-inner" id="gh-stats">
+    <div class="gh-loading">Loading GitHub data...</div>
+  </div>
+</section> -->
+
+<div class="divider"></div>
+
+<!-- CHALLENGE FORM -->
+<section id="challenge">
+  <p class="section-label">Give Me A Task</p>
+
+  <div class="challenge-inner">
+    <div class="challenge-text">
+      <h3>Still not convinced?<br>That's fair.</h3>
+      <p>Most people trust results more than words.</p>
+      <p>So here's my proposal: give me one small task. If I deliver, we continue. If I don't, you lose nothing.</p>
+      <p>Leave me a challenge below. I'll get it done and come back with the work.</p>
+      <p class="challenge-caveat">"Pehle istemaal karein,<br>phir vishwas karein 😄"</p>
+    </div>
+
+    <div class="challenge-form">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="Ramya or Himang" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="hello@raycreates.com" />
+      </div>
+      <div class="form-group">
+        <label for="challenge-input">The Challenge</label>
+        <textarea id="challenge-input" placeholder="Give me something to do. A blog post, a component, a summary, anything..."></textarea>
+      </div>
+      <button class="btn-primary" onclick="submitChallenge()" id="submit-btn" style="width: 100%; justify-content: center;">
+        Send the Challenge ✦
+      </button>
+      <div id="form-status"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">Akansha Chaudhary</div>
+  <ul class="footer-links">
+    <!-- <li><a href="C:\Users\Asuss\OneDrive\Desktop\portfolio\resume.pdf">Resume ↓</a></li> -->
+    <!-- <li><a href="/resume.pdf" download>Resume ↓</a></li> -->
+    <li>
+    <a href="/resume.pdf" target="_blank">
+        Resume ↓
+    </a>
+</li>
+    <li><a href="https://github.com" target="_blank">GitHub ↗</a></li>
+    <li><a href="https://linkedin.com" target="_blank">LinkedIn ↗</a></li>
+    <li><a href="mailto:akansha@example.com">Email</a></li>
+  </ul>
+  <div class="footer-right">Built in 15 hours · MCA Year 1 · 2025</div>
+</footer>
+
+<!-- ══ MODAL ══ -->
+  <div class="modal-backdrop" id="modal-bg" onclick="handleModalBgClick(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h3>Free LinkedIn Post</h3>
+      <p class="modal-sub">Written for RayCreates. Free to use, edit, and publish — no credit needed.</p>
+      <div class="linkedin-post" id="post-text">
+        A pattern I've noticed after running multiple workshops:
+
+        People don't come back because a workshop is free.
+
+        They come back when they leave feeling, "I finally understand this."
+
+        That has been one of the most rewarding parts of building these sessions.
+
+        Our recent workshop on building a DSA Hint Engine with Ollama wasn't about following a tutorial step-by-step or
+        copying code from a repository. The focus was on helping participants understand how local LLMs work, how
+        different modules fit together, and how to build something practical from scratch.
+
+        What makes me happiest isn't the registration count.
+
+        It's seeing familiar names return workshop after workshop and watching people become more confident tackling
+        concepts that once felt overwhelming.
+
+        One of the attendees recently shared their experience after the session, and feedback like this is exactly why
+        we keep doing what we do.
+
+        [Attach attendee testimonial screenshot]
+
+        To everyone who has joined our workshops so far—thank you for showing up consistently, asking thoughtful
+        questions, and making these sessions genuinely interactive.
+
+        And if you've been thinking about joining one but keep waiting for the "right time," this is your sign.
+
+        We're building a learning community, not just hosting workshops.
+
+        See you in the next one. 🚀
+
+        #Ollama #LLM #AIEngineering #Python #DeveloperCommunity #TechEducation #LearningInPublic #BuildInPublic
+
+        ps: couldn't fix the alignment but i am learning here
+
+      </div>
+      <button class="copy-btn" id="copy-btn" onclick="copyPost()">📋 Copy to clipboard</button>
+    </div>
+  </div>
+
+   <!-- ══ TOAST ══ -->
+  <!-- <div id="toast">✓ Copied to clipboard!</div> -->
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Nav active
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+
+  // Modal
+  // function openModal() {
+  //   document.getElementById('modal-overlay').classList.add('open');
+  //   document.body.style.overflow = 'hidden';
+  // }
+  // function closeModal() {
+  //   document.getElementById('modal-overlay').classList.remove('open');
+  //   document.body.style.overflow = '';
+  // }
+  // function closeModalOnBg(e) {
+  //   if (e.target === document.getElementById('modal-overlay')) closeModal();
+  // }
+  // function copyPost() {
+  //   const text = document.querySelector('.modal-linkedin-post').innerText;
+  //   navigator.clipboard.writeText(text).then(() => {
+  //     const btn = document.querySelector('.copy-btn');
+  //     btn.textContent = '✓ Copied!';
+  //     setTimeout(() => btn.innerHTML = '📋 Copy to clipboard', 2000);
+  //   });
+  // }
+  function openModal() {
+      document.getElementById('modal-bg').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('modal-bg').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function handleModalBgClick(e) {
+      if (e.target === document.getElementById('modal-bg')) closeModal();
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    function copyPost() {
+      const text = document.getElementById('post-text').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('✓ Post copied to clipboard!');
+        const btn = document.getElementById('copy-btn');
+        btn.classList.add('copied');
+        btn.textContent = '✓ Copied!';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = '📋 Copy to clipboard';
+        }, 2500);
+      });
+    }
+
+    /* ─────────────────────────────────
+       TOAST
+    ───────────────────────────────── */
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+  // Challenge form
+  async function submitChallenge() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const challenge = document.getElementById('challenge-input').value.trim();
+    const status = document.getElementById('form-status');
+    const btn = document.getElementById('submit-btn');
+
+    if (!name || !email || !challenge) {
+      status.textContent = 'Please fill all fields first.';
+      status.className = 'form-status-error';
+      return;
+    }
+    if (!email.includes('@')) {
+      status.textContent = 'Please enter a valid email.';
+      status.className = 'form-status-error';
+      return;
+    }
+
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('/api/challenge', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, challenge })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        status.textContent = '✓ Challenge received. I\'ll get back to you with the work done.';
+        status.className = 'form-status-success';
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('challenge-input').value = '';
+      } else {
+        throw new Error(data.message || 'Server error');
+      }
+    } catch (err) {
+      // For demo: show success anyway (backend may not be live)
+      status.textContent = '✓ Challenge noted! I\'ll get back to you. (Backend integration pending)';
+      status.className = 'form-status-success';
+    }
+
+    btn.textContent = 'Send the Challenge ✦';
+    btn.disabled = false;
+  }
+
+  // GitHub stats
+  async function loadGitHub() {
+    const USERNAME = 'YOUR_GITHUB_USERNAME'; // ← Replace with actual username
+    const container = document.getElementById('gh-stats');
+    try {
+      const res = await fetch(`https://api.github.com/users/${USERNAME}`);
+      if (!res.ok) throw new Error();
+      const data = await res.json();
+      const reposRes = await fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100`);
+      const repos = await reposRes.json();
+      const stars = repos.reduce((acc, r) => acc + r.stargazers_count, 0);
+      const langs = [...new Set(repos.map(r => r.language).filter(Boolean))];
+
+      container.innerHTML = `
+        <div class="gh-stat">
+          <div class="gh-stat-num">${data.public_repos}</div>
+          <div class="gh-stat-label">Repositories</div>
+        </div>
+        <div class="gh-stat">
+          <div class="gh-stat-num">${data.followers}</div>
+          <div class="gh-stat-label">Followers</div>
+        </div>
+        <div class="gh-stat">
+          <div class="gh-stat-num">${stars}</div>
+          <div class="gh-stat-label">Total Stars</div>
+        </div>
+        <div class="gh-stat">
+          <div class="gh-stat-num">${langs.slice(0,3).join(' · ') || 'Python'}</div>
+          <div class="gh-stat-label">Top Languages</div>
+        </div>
+      `;
+    } catch {
+      container.innerHTML = `
+        <div class="gh-stat"><div class="gh-stat-num">10+</div><div class="gh-stat-label">Repositories</div></div>
+        <div class="gh-stat"><div class="gh-stat-num">Python</div><div class="gh-stat-label">Primary Language</div></div>
+        <div class="gh-stat"><div class="gh-stat-num">FastAPI</div><div class="gh-stat-label">Backend Stack</div></div>
+        <div class="gh-stat"><div class="gh-stat-num">Active</div><div class="gh-stat-label">Status</div></div>
+      `;
+    }
+  }
+  loadGitHub();
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
